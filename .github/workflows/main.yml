@@ -16,6 +16,15 @@ jobs:
 
     - name: Build the project
       run: sh gradlew build
+    
+    - name: Generate the static site
+      run: sh gradlew run
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
 
 
 
